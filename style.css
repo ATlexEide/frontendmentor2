@@ -14,6 +14,11 @@
   --Desaturated-blue: hsl(235, 45%, 61%);
   --Pale-Blue: hsl(236, 100%, 87%);
 }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 .attribution {
   font-size: 11px;
   text-align: center;
@@ -21,9 +26,12 @@
 .attribution a {
   color: hsl(228, 45%, 44%);
 }
-
+main {
+  width: 80%;
+}
 .card {
-  width: 200px;
+  width: 100%;
+  border: 1px solid red;
 }
 /* Work / Play / Social etc */
 .activity {
