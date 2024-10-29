@@ -104,6 +104,14 @@ const tempData = [
 ];
 const data = tempData;
 const body = document.body;
+const timeframes = {
+  daily: { timeframe: "daily", prefix: "Last Day(?) - " },
+  weekly: { timeframe: "weekly", prefix: "Last Week - " },
+  monthly: { timeframe: "monthly", prefix: "Last Month - " },
+};
+let mode = timeframes.daily;
+const period = mode.timeframe;
+let prefix = mode.prefix;
 data.forEach((area) => {
   const card = document.createElement("section");
   card.classList.add("card");
@@ -116,13 +124,25 @@ data.forEach((area) => {
   const nav = document.createElement("nav");
   nav.classList.add("select");
   const navButton = document.createElement("button");
-  navButton.classList.add("navButton");
+  navButton.classList.add("select-button");
   const icon = document.createElement("img");
   icon.src = "./images/icon-ellipsis.svg";
   icon.alt = "ellipsis icon";
   navButton.appendChild(icon);
   nav.appendChild(navButton);
   card.appendChild(nav);
+
+  const hours = document.createElement("div");
+  hours.classList.add("total-hours");
+  const currHours = document.createElement("div");
+  currHours.classList.add("current-hours");
+  currHours.textContent = area.timeframes[period].current;
+  const prevHours = document.createElement("div");
+  prevHours.classList.add("previous-hours");
+  prevHours.textContent = `${prefix}${area.timeframes[period].previous}`;
+  hours.appendChild(currHours);
+  hours.appendChild(prevHours);
+  card.appendChild(hours);
 
   body.appendChild(card);
 });
