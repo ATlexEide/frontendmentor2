@@ -1,11 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    div
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- displays site properly based on user's device -->
-
     <link
       rel="icon"
       type="image/png"
@@ -13,39 +10,25 @@
       href="./images/favicon-32x32.png"
     />
     <link rel="stylesheet" href="style.css" />
-
     <title>Frontend Mentor | Time tracking dashboard</title>
-
-    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
     <script src="index.js" defer></script>
   </head>
   <body>
-    <main>
-      <section class="card" id="user">
-        <figure id="user-pfp">
-          <img src="./images/image-jeremy.png" alt="profile picture" />
-        </figure>
-        <div id="user-info">
-          <span>Report for</span>
-          <h1 id="user-name">Jeremy Robson</h1>
-        </div>
-        <div id="time-period">
-          <div id="daily">Daily</div>
-          <div id="weekly">Weekly</div>
-          <div id="monthly">Monthly</div>
-        </div>
-      </section>
-      <section class="card">
-        <h3 class="activity">Work</h3>
-        <nav class="select">
-          <button><img src="./images/icon-ellipsis.svg" alt="" /></button>
-        </nav>
-        <div class="hours">
-          <div class="current">32hrs</div>
-          <div class="previous">Previous - 36hrs</div>
-        </div>
-      </section>
-    </main>
+    <section class="card" id="user">
+      <figure id="user-pfp">
+        <img src="./images/image-jeremy.png" alt="profile picture" />
+      </figure>
+      <div id="user-info">
+        <span>Report for</span>
+        <h1 id="user-name">Jeremy Robson</h1>
+      </div>
+      <div id="time-period">
+        <div id="daily" onclick="changeMode('daily')">Daily</div>
+        <div id="weekly" onclick="changeMode('weekly')">Weekly</div>
+        <div id="monthly" onclick="changeMode('monthly')">Monthly</div>
+      </div>
+    </section>
+    <main id="main"></main>
 
     <div class="attribution">
       Challenge by

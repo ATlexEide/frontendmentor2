@@ -26,14 +26,32 @@
 .attribution a {
   color: hsl(228, 45%, 44%);
 }
+body {
+  display: grid;
+  place-items: center;
+}
 main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 80%;
 }
-.card {
+.card-container {
   width: 100%;
+}
+.background {
+  height: 20px;
+  background-color: red;
+}
+.card {
   border: 1px solid red;
+  background-color: blue;
 }
 /* Work / Play / Social etc */
+.title {
+  display: flex;
+  justify-content: space-between;
+}
 .activity {
 }
 /* NAV  */
@@ -44,7 +62,9 @@ main {
 .select button > img {
 }
 /* Hours */
-.total-hours {
+.hours {
+  display: flex;
+  justify-content: space-between;
 }
 .current-hours {
 }

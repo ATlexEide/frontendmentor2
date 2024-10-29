@@ -1,6 +1,7 @@
 const tempData = [
   {
     title: "Work",
+    id: "work",
     timeframes: {
       daily: {
         current: 5,
@@ -18,6 +19,7 @@ const tempData = [
   },
   {
     title: "Play",
+    id: "play",
     timeframes: {
       daily: {
         current: 1,
@@ -35,6 +37,7 @@ const tempData = [
   },
   {
     title: "Study",
+    id: "study",
     timeframes: {
       daily: {
         current: 0,
@@ -52,6 +55,7 @@ const tempData = [
   },
   {
     title: "Exercise",
+    id: "exercise",
     timeframes: {
       daily: {
         current: 1,
@@ -69,6 +73,7 @@ const tempData = [
   },
   {
     title: "Social",
+    id: "social",
     timeframes: {
       daily: {
         current: 1,
@@ -86,6 +91,7 @@ const tempData = [
   },
   {
     title: "Self Care",
+    id: "self-care",
     timeframes: {
       daily: {
         current: 0,
@@ -103,46 +109,66 @@ const tempData = [
   },
 ];
 const data = tempData;
-const body = document.body;
+const main = document.getElementById("main");
 const timeframes = {
   daily: { timeframe: "daily", prefix: "Last Day(?) - " },
   weekly: { timeframe: "weekly", prefix: "Last Week - " },
   monthly: { timeframe: "monthly", prefix: "Last Month - " },
 };
-let mode = timeframes.daily;
-const period = mode.timeframe;
-let prefix = mode.prefix;
-data.forEach((area) => {
-  const card = document.createElement("section");
-  card.classList.add("card");
+function render(_mode = "daily") {
+  let mode = timeframes[_mode]; //changeMode();
+  const period = mode.timeframe;
+  let prefix = mode.prefix;
+  main.textContent = "";
+  data.forEach((area) => {
+    const cardCont = document.createElement("section");
+    cardCont.classList.add("card-container");
+    const bg = document.createElement("div");
+    bg.id = `${area.id}`;
+    bg.classList.add("background");
+    const card = document.createElement("div");
+    card.classList.add("card");
 
-  const activity = document.createElement("h3");
-  activity.classList.add("activity");
-  activity.textContent = area.title;
-  card.appendChild(activity);
+    const title = document.createElement("span");
+    title.classList.add("title");
+    const activity = document.createElement("h3");
+    activity.classList.add("activity");
+    activity.textContent = area.title;
+    title.appendChild(activity);
 
-  const nav = document.createElement("nav");
-  nav.classList.add("select");
-  const navButton = document.createElement("button");
-  navButton.classList.add("select-button");
-  const icon = document.createElement("img");
-  icon.src = "./images/icon-ellipsis.svg";
-  icon.alt = "ellipsis icon";
-  navButton.appendChild(icon);
-  nav.appendChild(navButton);
-  card.appendChild(nav);
+    const nav = document.createElement("nav");
+    nav.classList.add("select");
+    const navButton = document.createElement("button");
+    navButton.classList.add("select-button");
+    const icon = document.createElement("img");
+    icon.src = "./images/icon-ellipsis.svg";
+    icon.alt = "ellipsis icon";
+    navButton.appendChild(icon);
+    nav.appendChild(navButton);
+    title.appendChild(nav);
+    card.appendChild(title);
 
-  const hours = document.createElement("div");
-  hours.classList.add("total-hours");
-  const currHours = document.createElement("div");
-  currHours.classList.add("current-hours");
-  currHours.textContent = area.timeframes[period].current;
-  const prevHours = document.createElement("div");
-  prevHours.classList.add("previous-hours");
-  prevHours.textContent = `${prefix}${area.timeframes[period].previous}`;
-  hours.appendChild(currHours);
-  hours.appendChild(prevHours);
-  card.appendChild(hours);
+    const hours = document.createElement("div");
+    hours.classList.add("hours");
+    const currHours = document.createElement("div");
+    currHours.classList.add("current-hours");
+    currHours.textContent = area.timeframes[period].current;
+    const prevHours = document.createElement("div");
+    prevHours.classList.add("previous-hours");
+    prevHours.textContent = `${prefix}${area.timeframes[period].previous}`;
+    hours.appendChild(currHours);
+    hours.appendChild(prevHours);
+    card.appendChild(hours);
+    cardCont.appendChild(bg);
+    cardCont.appendChild(card);
+    main.appendChild(cardCont);
+  });
+}
 
-  body.appendChild(card);
-});
+function changeMode(_mode) {
+  console.log("yipp");
+  render(_mode);
+}
+(function () {
+  render();
+})();
