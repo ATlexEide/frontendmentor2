@@ -21,3 +21,24 @@
 .attribution a {
   color: hsl(228, 45%, 44%);
 }
+
+.card {
+  width: 200px;
+}
+/* Work / Play / Social etc */
+.activity {
+}
+/* NAV  */
+.select {
+}
+.select-button {
+}
+.select button > img {
+}
+/* Hours */
+.total-hours {
+}
+.current-hours {
+}
+.previous-hours {
+}
