@@ -97,8 +97,10 @@ main {
   align-items: end;
   box-shadow: 0 -25px 0 0 var(--Dark-blue);
 }
-#time-period button {
+button {
   cursor: pointer;
+}
+#time-period button {
   background: none;
   border: none;
   color: inherit;
