@@ -55,6 +55,10 @@ main {
 }
 #user {
   width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 #user-pfp img {
@@ -67,12 +71,12 @@ main {
   z-index: 1;
   background-color: var(--Blue);
   border-radius: var(--radius);
-  height: 10%;
   display: flex;
+  align-items: center;
+  gap: 1em;
   padding: 1em;
 }
 #user-name {
-  margin: 0 auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -87,10 +91,10 @@ main {
 }
 #time-period {
   display: flex;
-  margin-top: -1.7em;
   background-color: var(--Dark-blue);
   justify-content: space-evenly;
   align-items: end;
+  box-shadow: 0 -25px 0 0 var(--Dark-blue); /* This is where the magic happens! */
 }
 #time-period button {
   background: none;
@@ -109,7 +113,6 @@ main {
 .card {
   background-color: var(--Dark-blue);
   border-radius: var(--radius);
-  height: 6em;
   padding: 1.5em;
 }
 .card:hover {
@@ -178,7 +181,7 @@ main {
 footer {
   margin-top: auto;
 }
-@media only screen and (min-width: 700px) {
+@media only screen and (min-width: 1000px) {
   main {
     display: grid;
     gap: 1em;
@@ -192,15 +195,20 @@ footer {
     display: grid;
     gap: 1em;
     grid-template-columns: repeat(3, 250px);
-    grid-template-areas:
-      "work play study"
-      "exercise social self-care";
+    grid-template-areas: "work play study" 250xp,
+      "exercise social self-care" 250px;
     width: fit-content;
+  }
+  .card {
+    min-height: 10em;
+    padding: 1.5em;
   }
   .card-container {
     padding: 0;
   }
   #time-period {
+    align-items: center;
+    height: 40%;
   }
   #user {
     grid-column: 1/2;
@@ -208,7 +216,13 @@ footer {
     height: 100%;
   }
   #user-info {
-    height: 80%;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    height: 60%;
+  }
+  #user-name {
+    /* margin: 0; */
   }
   #work {
     grid-area: work;
