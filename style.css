@@ -119,6 +119,7 @@ button {
   background-color: var(--Dark-blue);
   border-radius: var(--radius);
   padding: 1.5em;
+  transition: 0.1s;
 }
 .card:hover {
   cursor: pointer;
