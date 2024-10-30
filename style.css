@@ -91,12 +91,14 @@ main {
 }
 #time-period {
   display: flex;
+  cursor: default;
   background-color: var(--Dark-blue);
   justify-content: space-evenly;
   align-items: end;
   box-shadow: 0 -25px 0 0 var(--Dark-blue);
 }
 #time-period button {
+  cursor: pointer;
   background: none;
   border: none;
   color: inherit;
@@ -104,6 +106,7 @@ main {
   opacity: 0.5;
 }
 #time-period button:disabled {
+  cursor: default;
   opacity: 1;
 }
 .card-container {
