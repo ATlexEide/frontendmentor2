@@ -109,23 +109,28 @@ const tempData = [
   },
 ];
 const data = tempData;
-const main = document.getElementById("main");
+const generated = document.getElementById("generated");
 const timeframes = {
-  daily: { timeframe: "daily", prefix: "Last Day(?) - " },
+  daily: { timeframe: "daily", prefix: "Yesterday - " },
   weekly: { timeframe: "weekly", prefix: "Last Week - " },
   monthly: { timeframe: "monthly", prefix: "Last Month - " },
 };
 function render(_mode = "daily") {
-  let mode = timeframes[_mode]; //changeMode();
+  let mode = timeframes[_mode];
   const period = mode.timeframe;
   let prefix = mode.prefix;
-  main.textContent = "";
+  generated.textContent = "";
   data.forEach((area) => {
     const cardCont = document.createElement("section");
     cardCont.classList.add("card-container");
     const bg = document.createElement("div");
     bg.id = `${area.id}`;
     bg.classList.add("background");
+    const bgImg = document.createElement("img");
+    bgImg.src = `./images/icon-${area.id}.svg`;
+    const fig = document.createElement("figure");
+    fig.appendChild(bgImg);
+    bg.appendChild(fig);
     const card = document.createElement("div");
     card.classList.add("card");
 
@@ -155,15 +160,26 @@ function render(_mode = "daily") {
     currHours.textContent = area.timeframes[period].current;
     const prevHours = document.createElement("div");
     prevHours.classList.add("previous-hours");
-    prevHours.textContent = `${prefix}${area.timeframes[period].previous}`;
+    prevHours.textContent = `${prefix}${area.timeframes[period].previous}hrs`;
     hours.appendChild(currHours);
     hours.appendChild(prevHours);
     card.appendChild(hours);
     cardCont.appendChild(bg);
     cardCont.appendChild(card);
-    main.appendChild(cardCont);
+    generated.appendChild(cardCont);
   });
 }
+let lastClicked = "daily";
+const timelineButtons = document.querySelectorAll(".timeline-buttons");
+timelineButtons.forEach((btn) => {
+  console.log(btn.id);
+  btn.addEventListener("click", () => {
+    if (lastClicked) document.getElementById(lastClicked).disabled = false;
+    changeMode(btn.id);
+    lastClicked = btn.id;
+    btn.disabled = true;
+  });
+});
 
 function changeMode(_mode) {
   console.log("yipp");

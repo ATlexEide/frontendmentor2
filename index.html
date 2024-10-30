@@ -12,24 +12,39 @@
     <link rel="stylesheet" href="style.css" />
     <title>Frontend Mentor | Time tracking dashboard</title>
     <script src="index.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <section class="card" id="user">
-      <figure id="user-pfp">
-        <img src="./images/image-jeremy.png" alt="profile picture" />
-      </figure>
-      <div id="user-info">
-        <span>Report for</span>
-        <h1 id="user-name">Jeremy Robson</h1>
-      </div>
-      <div id="time-period">
-        <div id="daily" onclick="changeMode('daily')">Daily</div>
-        <div id="weekly" onclick="changeMode('weekly')">Weekly</div>
-        <div id="monthly" onclick="changeMode('monthly')">Monthly</div>
-      </div>
-    </section>
-    <main id="main"></main>
-
+    <main id="main">
+      <section class="card-container" id="user">
+        <div id="user-info">
+          <figure id="user-pfp">
+            <img src="./images/image-jeremy.png" alt="profile picture" />
+          </figure>
+          <div id="user-name">
+            <span>Report for</span>
+            <h1>Jeremy Robson</h1>
+          </div>
+        </div>
+        <ul id="time-period" class="card">
+          <li>
+            <button disabled id="daily" class="timeline-buttons">Daily</button>
+          </li>
+          <li>
+            <button id="weekly" class="timeline-buttons">Weekly</button>
+          </li>
+          <li>
+            <button id="monthly" class="timeline-buttons">Monthly</button>
+          </li>
+        </ul>
+      </section>
+      <section id="generated"></section>
+    </main>
     <div class="attribution">
       Challenge by
       <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
