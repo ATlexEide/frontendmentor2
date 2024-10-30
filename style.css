@@ -94,7 +94,7 @@ main {
   background-color: var(--Dark-blue);
   justify-content: space-evenly;
   align-items: end;
-  box-shadow: 0 -25px 0 0 var(--Dark-blue); /* This is where the magic happens! */
+  box-shadow: 0 -25px 0 0 var(--Dark-blue);
 }
 #time-period button {
   background: none;
@@ -121,11 +121,9 @@ main {
 }
 /* Work / Play / Social etc */
 .title {
-  padding-bottom: 0.5em;
+  padding: 0.5em 0;
   display: flex;
   justify-content: space-between;
-}
-.activity {
 }
 /* NAV  */
 .select-button {
@@ -135,12 +133,19 @@ main {
 
 /* Hours */
 .hours {
+  padding: 0 0.1em;
   display: flex;
+  margin: auto 0;
+  height: 100%;
   justify-content: space-between;
+  align-items: center;
 }
 .current-hours {
+  font-size: 2rem;
+  font-weight: 300;
 }
 .previous-hours {
+  opacity: 0.5;
 }
 /* Background icons */
 .background {
@@ -200,15 +205,22 @@ footer {
     width: fit-content;
   }
   .card {
-    min-height: 10em;
     padding: 1.5em;
   }
   .card-container {
     padding: 0;
   }
+  .hours {
+    justify-content: center;
+    align-items: start;
+    flex-direction: column;
+    margin: auto 0;
+    min-height: 4em;
+  }
   #time-period {
     align-items: center;
     height: 40%;
+    gap: 1em;
   }
   #user {
     grid-column: 1/2;
@@ -221,8 +233,8 @@ footer {
     justify-content: center;
     height: 60%;
   }
-  #user-name {
-    /* margin: 0; */
+  #user-name h1 {
+    font-size: 2rem;
   }
   #work {
     grid-area: work;
