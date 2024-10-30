@@ -157,7 +157,7 @@ function render(_mode = "daily") {
     hours.classList.add("hours");
     const currHours = document.createElement("div");
     currHours.classList.add("current-hours");
-    currHours.textContent = area.timeframes[period].current;
+    currHours.textContent = `${area.timeframes[period].current}hrs`;
     const prevHours = document.createElement("div");
     prevHours.classList.add("previous-hours");
     prevHours.textContent = `${prefix}${area.timeframes[period].previous}hrs`;
