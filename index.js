@@ -110,7 +110,7 @@ timelineButtons.forEach((btn) => {
     if (lastClicked) document.getElementById(lastClicked).disabled = false;
     ////
     // Fire the render function
-    changeMode(btn.id);
+    render(btn.id);
     ////
     // Update current timeframe
     lastClicked = btn.id;
@@ -118,12 +118,7 @@ timelineButtons.forEach((btn) => {
     btn.disabled = true;
   });
 });
-////////
-// Actually run the render function
-function changeMode(_mode) {
-  console.log("yipp");
-  render(_mode);
-}
+
 ////////
 // Run the render function on pageload
 // Defaults to "daily"
