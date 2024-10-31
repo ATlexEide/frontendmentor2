@@ -3,6 +3,8 @@
 const req = await fetch("./data.json");
 const data = await req.json();
 
+////
+// Select the container for appending cards
 const generated = document.getElementById("generated");
 ////////
 // Timeframe object for easy selection of correct timeframe and attributed prefix
