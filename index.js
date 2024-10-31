@@ -123,8 +123,8 @@ timelineButtons.forEach((btn) => {
 
 ////////
 // Run the render function on pageload
-// Defaults to "daily"
-// Use string "daily", "weekly" or "monthly" as argument to change default timeframe on load
+// - Defaults to "daily"
+// - Use string "daily", "weekly" or "monthly" as argument to change default timeframe on load
 (function () {
   render();
 })();
